@@ -1,0 +1,25 @@
+FROM vm/ubuntu:18.04
+
+# Install Node.js 18 (Strapi requires Node.js >= 14)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -f /etc/apt/sources.list.d/nodesource.list
+
+# Install build essentials
+RUN apt-get update && \
+    apt-get install -y build-essential
+
+# Copy repository files
+COPY . .
+
+# Install dependencies
+RUN npm install
+
+# Build the Strapi application
+RUN npm run build
+
+# Start the Strapi server in the background
+RUN BACKGROUND npm run start
+
+# Expose the website (Strapi runs on port 1337 by default)
+EXPOSE WEBSITE http://localhost:1337

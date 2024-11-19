@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Install dependencies
-npm install
+# Set Node options for memory management
+export NODE_OPTIONS="--max-old-space-size=384"
 
-# Build the application
+# Install production dependencies only
+npm ci --only=production
+
+# Build the application with reduced memory
 NODE_ENV=production npm run build
 
-# Start with explicit port
-PORT=10000 NODE_ENV=production NODE_OPTIONS="--max_old_space_size=460" npm run start
+# Start the application
+PORT=10000 NODE_ENV=production npm run start

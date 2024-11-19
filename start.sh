@@ -9,5 +9,6 @@ npm ci --only=production
 # Build the application with reduced memory
 NODE_ENV=production npm run build
 
-# Start the application
-PORT=10000 NODE_ENV=production npm run start
+# Start the application with explicit port binding
+export PORT=10000
+npm run start

@@ -7,7 +7,7 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register({ strapi }: { strapi: Strapi }) {
+  register({ strapi }) {
     // Force the server to listen on the specified port
     process.env.PORT = process.env.PORT || '10000';
   },
@@ -19,8 +19,9 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap({ strapi }: { strapi: Strapi }) {
-    // Log the port we're running on
-    console.log(`Server is running on port ${process.env.PORT}`);
+  bootstrap({ strapi }) {
+    const serverUrl = `http://localhost:${process.env.PORT}`;
+    console.log(` Server is running on ${serverUrl}`);
+    console.log(` Admin panel available at ${serverUrl}/admin`);
   },
 };

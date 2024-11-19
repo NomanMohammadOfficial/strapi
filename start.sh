@@ -8,7 +8,7 @@ export NODE_OPTIONS="--max-old-space-size=384"
 
 # Set environment variables
 export HOST="0.0.0.0"
-export PORT="${PORT:-10000}"
+export PORT=10000
 export NODE_ENV=production
 
 echo "Installing dependencies..."
@@ -18,4 +18,4 @@ echo "Building application..."
 NODE_ENV=production npm run build
 
 echo "Starting server on ${HOST}:${PORT}..."
-exec npm run start
+exec node server.js

@@ -14,7 +14,7 @@ echo "Installing dependencies..."
 npm ci --only=production --no-audit --prefer-offline
 
 echo "Building application..."
-npm run build
+NODE_ENV=production npm run build
 
 echo "Starting server..."
 exec npm run start

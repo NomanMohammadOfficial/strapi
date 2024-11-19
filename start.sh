@@ -11,10 +11,10 @@ export PORT=10000
 export NODE_ENV=production
 
 echo "Installing dependencies..."
-npm ci --only=production --no-audit
+npm ci --only=production --no-audit --prefer-offline
 
 echo "Building application..."
 npm run build
 
 echo "Starting server..."
-npm run start
+exec npm run start

@@ -1,4 +1,6 @@
-import { Strapi } from '@strapi/strapi';
+/**
+ * Strapi lifecycle scripts
+ */
 
 export default {
   /**
